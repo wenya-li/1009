@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>六甲裡有六甲田</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto:wght@700&display=swap" rel="stylesheet">  
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="lib/flaticon/font/flaticon.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+           <style>
+    /* 設置影片迴廊容器 */
+    .video-gallery-container {
+        position: relative;
+        width: 100%; /* 容器寬度 */
+        overflow: hidden; /* 隱藏溢出的影片 */
+    }
+
+    /* 影片容器 */
+    .video-container {
+        display: flex;
+        justify-content: flex-start;
+        gap: 20px; /* 每個影片之間的間距 */
+        scroll-snap-type: x mandatory; /* 滾動吸附 */
+        overflow-x: auto;
+        scroll-behavior: smooth; /* 平滑滾動 */
+        padding: 20px;
+    }
+
+    /* 每個影片設置 */
+    .video-container iframe {
+        min-width: calc(100% - 120px); /* 讓每個影片寬度略小於容器寬度，兩側能部分顯示 */
+        max-width: calc(100% - 120px);
+        height: 450px; /* 高度設定為固定比例 */
+        border: none;
+        border-radius: 8px;
+        scroll-snap-align: center; /* 影片滾動時居中 */
+    }
+
+        /* 左右按鈕樣式 */
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            font-size: 20px;
+            z-index: 100;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Topbar Start -->
+    <div class="container-fluid border-bottom d-none d-lg-block">
+        <div class="row gx-0">
+            <div class="col-lg-4 text-center py-2">
+                <div class="d-inline-flex align-items-center">
+                    <i class="bi bi-geo-alt fs-1 text-primary me-3"></i>
+                    <div class="text-start">
+                        <h6 class="text-uppercase mb-1">Our Office</h6>
+                        <span>433台中市沙鹿區台灣大道七段200號</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 text-center border-start border-end py-2">
+                <div class="d-inline-flex align-items-center">
+                    <i class="bi bi-envelope-open fs-1 text-primary me-3"></i>
+                    <div class="text-start">
+                        <h6 class="text-uppercase mb-1">Email Us</h6>
+                        <span>lioujia.in.tainan@gmail.com</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 text-center py-2">
+                <div class="d-inline-flex align-items-center">
+                    <i class="bi bi-instagram fs-1 text-primary me-3"></i>
+                    <div class="text-start">
+                        <h6 class="text-uppercase mb-1">Follow Us</h6>
+                        <span>we_are_luckygirls</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+
+
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow-sm py-3 py-lg-0 px-3 px-lg-0 mb-5">
+        <a href="index.html" class="navbar-brand ms-lg-5">
+            <h1 class="m-0 text-uppercase text-dark"><i class="bi bi-shop fs-1 text-primary me-3"></i>六甲裡有六甲田</h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto py-0">
+                <a href="index.html" class="nav-item nav-link">首頁</a>
+                <a href="about.html" class="nav-item nav-link active">耕耘足跡</a>
+                <a href="service.html" class="nav-item nav-link">Reels</a>
+                <a href="product.html" class="nav-item nav-link">商品包裝理念</a>
+                <a href="news.html" class="nav-item nav-link">最新消息</a>
+                <a href="price.html" class="nav-item nav-link">關於我們</a>
+                <a href="contact.html" class="nav-item nav-link nav-contact bg-primary text-white px-5 ms-lg-5">產品訂購 <i class="bi bi-arrow-right"></i></a>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+
+
+    <!-- About Start -->
+    
+    <!-- About End -->
+
+
+    <!-- Offer Start -->
+    <div class="container-fluid bg-about my-5 py-5">
+        <div class="container py-5">
+            <div class="row gx-5 justify-content-start">
+                <div class="col-lg-7">
+                    <div class="border-start border-5 border-dark ps-5 mb-5">
+                        <h6 class="text-dark text-uppercase">Campaign video</h6>
+                        <h1 class="display-5 text-uppercase text-white mb-0">宣傳片封面</h1>
+                    </div>
+                    <p class="text-white mb-4">Eirmod sed tempor lorem ut dolores sit kasd ipsum. Dolor ea et dolore et at sea ea at dolor justo ipsum duo rebum sea. Eos vero eos vero ea et dolore eirmod et. Dolores diam duo lorem. Elitr ut dolores magna sit. Sea dolore sed et.</p>
+                    <div class="d-flex align-items-center justify-content-center justify-content-lg-start pt-5">
+                
+                       <button type="button" class="btn-play" onclick="openVideo('https://www.youtube.com/embed/V27HhN7TX8w?si=Cc5CKShchZj5huD8')">
+    <span></span>
+</button>
+<h5 class="font-weight-normal text-white m-0 ms-4 d-none d-sm-block">Play Video</h5>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Offer End -->
+     <!-- Blog Start -->
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="border-start border-5 border-primary ps-5 mb-5" style="max-width: 600px;">
+                <h6 class="text-primary text-uppercase">documentary</h6>
+                <h1 class="display-5 text-uppercase mb-0">紀錄片</h1>
+            </div>
+<!-- Video Start -->
+<div class="video-gallery-container">
+    <button class="prev" onclick="scrollGallery(-1)">&#10094;</button>
+    <div class="video-container" id="videoGallery">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/GgwUenaQqlM?si=c6c3P578WS2X6hWf" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/V27HhN7TX8w?si=1-Tj0Z1TsvoeRy7D" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/4W6-FlB-Xro?si=_KPgPuq_NYiZGKO2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/b3f6Shks9g4?si=wPj8oDoYllstIZ6X" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    <button class="next" onclick="scrollGallery(1)">&#10095;</button>
+</div>
+
+<script>
+// 以下彈出視窗的設置
+    function openVideo(videoUrl) {
+    const videoPopup = document.getElementById('videoPopup');
+    const popupVideo = document.getElementById('popupVideo');
+    popupVideo.src = videoUrl + "?autoplay=1"; // 設定影片自動播放
+    videoPopup.style.display = 'block'; // 顯示彈出視窗
+}
+
+function closeVideo() {
+    const videoPopup = document.getElementById('videoPopup');
+    const popupVideo = document.getElementById('popupVideo');
+    popupVideo.src = ''; // 停止影片播放
+    videoPopup.style.display = 'none'; // 隱藏彈出視窗
+}
+
+// 以上彈出視窗的設置
+    const gallery = document.querySelector('.video-container');
+    const iframes = document.querySelectorAll('.video-container iframe');
+    let isScrolling = false;
+
+
+    // 初始滾動到第一個影片的一點點位置
+    gallery.scrollLeft = gallery.clientWidth * 0.1; // 讓第一個影片稍微不在中心
+
+    // 用來控制畫廊左右滑動的功能
+    function scrollGallery(direction) {
+        const scrollAmount = gallery.clientWidth * 0.8; // 每次滾動80%的寬度
+
+        // 檢查是否在最後一個影片時向右滾動
+        if (direction === 1 && gallery.scrollLeft >= (gallery.scrollWidth - gallery.clientWidth - 10)) {
+            gallery.scrollLeft = gallery.clientWidth * 0.1; // 滾動回到開頭的一點點位置
+            return; // 直接返回，不繼續滾動
+        }
+
+        gallery.scrollBy({
+            left: scrollAmount * direction,
+            behavior: 'smooth'
+        });
+
+        updateActiveVideo(); // 更新影片狀態
+    }
+
+    // 檢查影片是否位於畫面中間，並調整大小
+    function updateActiveVideo() {
+        const galleryRect = gallery.getBoundingClientRect();
+        iframes.forEach(iframe => {
+            const iframeRect = iframe.getBoundingClientRect();
+            // 檢查是否影片位於畫廊的中心
+            if (iframeRect.left >= galleryRect.left + galleryRect.width / 4 && 
+                iframeRect.right <= galleryRect.right - galleryRect.width / 4) {
+                iframe.classList.add('active'); // 放大中間的影片
+            } else {
+                iframe.classList.remove('active'); // 其他影片恢復原大小
+            }
+        });
+    }
+
+    // 監聽滾動事件，實時更新影片縮放狀態
+    gallery.addEventListener('scroll', updateActiveVideo);
+
+    // 頁面加載時初始化影片縮放狀態
+    window.addEventListener('load', updateActiveVideo);
+</script>
+        <!-- Video End -->
+
+        </div>
+    </div>
+
+
+    <!-- Blog End -->
+
+    <!-- Team Start -->
+    
+    <!-- Team End -->
+
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-light mt-5 py-5">
+        <div class="container pt-5">
+            <div class="row g-5">
+                <div style="width: 400px;" class="col-lg-3 col-md-6">
+                    <h5 class="text-uppercase border-start border-5 border-primary ps-3 mb-4">Get In Touch</h5>
+                    <p class="mb-4"></p>
+                    <p class="mb-2"><i class="bi bi-geo-alt text-primary me-2"></i>433台中市沙鹿區台灣大道七段200號</p>
+                    <p class="mb-2"><i class="bi bi-envelope-open text-primary me-2"></i>lioujia.in.tainan@gmail.com</p>
+                    <p class="mb-0"><i class="bi bi-instagram text-primary me-2"></i>we_are_luckygirls</p>
+                </div>
+                
+<div class="col-lg-3 col-md-6">
+                    <h5 class="text-uppercase border-start border-5 border-primary ps-3 mb-4">Follow Us</h5>
+                    <div class="d-flex">
+                        <a class="btn btn-outline-primary btn-square me-2" href="https://www.facebook.com/share/PM6xLbBxn688fyh3/?mibextid=LQQJ4d/你的帳號名稱" target="_blank">
+                        <i class="bi bi-facebook"></i></a>
+                        <a class="btn btn-outline-primary btn-square me-2" href="https://youtube.com/channel/UCkN1MvScFaJSPXot_zG8Cag?si=c3UR3QkN6Ae6RwJa/你的帳號名稱" target="_blank">
+                        <i class="bi bi-youtube"></i></a>
+                        <a class="btn btn-outline-primary btn-square me-2" href="https://www.instagram.com/we_are_luckygirls?igsh=MWgzbGhlYWppcjB3cw%3D%3D&utm_source=qr/你的帳號名稱" target="_blank">
+                        <i class="bi bi-instagram"></i></a>
+                        
+                    </div>
+                </div>
+                <div class="col-12 text-center text-body">
+                    <a class="text-body" href="">網站條款及細則</a>
+                    <span class="mx-1">|</span>
+                    <a class="text-body" href="">隱私權政策</a>
+                    <span class="mx-1">|</span>
+                    <a class="text-body" href="">幫助</a>
+                    <span class="mx-1">|</span>
+                    <a class="text-body" href="">Q&A</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid bg-dark text-white-50 py-4">
+    <div class="col-12 text-center text-body">
+                    <a class="text-body" >Copyright © 2024 靜宜大學大眾傳播學系 六甲裡有六甲田</a>
+        
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-primary py-3 fs-4 back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+
+    <!-- Video Popup Start -->
+<div id="videoPopup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: rgba(0, 0, 0, 0.5); /* 背景半透明 */; padding: 20px; z-index: 1000; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.5);">
+    <button onclick="closeVideo()" style="position: absolute; top: 10px; right: 10px; background: none; border: none; color: white; font-size: 24px; cursor: pointer;">&times;</button>
+    <iframe id="popupVideo" width="560" height="315" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<!-- Video Popup End -->
+
+</body>
+
+</html>
