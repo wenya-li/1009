@@ -27,8 +27,7 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
-
-    <style>
+           <style>
     /* 設置影片迴廊容器 */
     .video-gallery-container {
         position: relative;
@@ -151,24 +150,25 @@
             <div class="row gx-5 justify-content-start">
                 <div class="col-lg-7">
                     <div class="border-start border-5 border-dark ps-5 mb-5">
-                        <h6 class="text-dark text-uppercase"><!-- 這是小標題 --></h6>
-                        <h1 class="display-5 text-uppercase text-white mb-0"><!-- 這是封面標題 --></h1>
+                        <h6 class="text-dark text-uppercase">Campaign video</h6>
+                        <h1 class="display-5 text-uppercase text-white mb-0">宣傳片封面</h1>
                     </div>
-                    <p class="text-white mb-4"><!-- 這是封面內文 --></p>
+                    <p class="text-white mb-4">Eirmod sed tempor lorem ut dolores sit kasd ipsum. Dolor ea et dolore et at sea ea at dolor justo ipsum duo rebum sea. Eos vero eos vero ea et dolore eirmod et. Dolores diam duo lorem. Elitr ut dolores magna sit. Sea dolore sed et.</p>
                     <div class="d-flex align-items-center justify-content-center justify-content-lg-start pt-5">
-                    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
+                
                        <button type="button" class="btn-play" onclick="openVideo('https://www.youtube.com/embed/V27HhN7TX8w?si=Cc5CKShchZj5huD8')">
-                        <span></span>
-                        </button>
-                        <h5 class="font-weight-normal text-white m-0 ms-4 d-none d-sm-block">Play Video</h5>
+    <span></span>
+</button>
+<h5 class="font-weight-normal text-white m-0 ms-4 d-none d-sm-block">Play Video</h5>
+
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <!-- Offer End -->
-     <!-- 紀錄片Blog Start -->
+     <!-- Blog Start -->
     <div class="container-fluid py-5">
         <div class="container">
             <div class="border-start border-5 border-primary ps-5 mb-5" style="max-width: 600px;">
@@ -189,25 +189,21 @@
 
 <script>
 // 以下彈出視窗的設置
-function openVideo(videoUrl) {
-    // 設定影片的網址
-    document.getElementById('popupVideo').src = videoUrl;
-    // 顯示遮罩和彈出視窗
-    document.getElementById('videoOverlay').style.display = 'block';
-    document.getElementById('videoPopup').style.display = 'block';
+    function openVideo(videoUrl) {
+    const videoPopup = document.getElementById('videoPopup');
+    const popupVideo = document.getElementById('popupVideo');
+    popupVideo.src = videoUrl + "?autoplay=1"; // 設定影片自動播放
+    videoPopup.style.display = 'block'; // 顯示彈出視窗
 }
 
 function closeVideo() {
-    // 隱藏遮罩和彈出視窗
-    document.getElementById('videoOverlay').style.display = 'none';
-    document.getElementById('videoPopup').style.display = 'none';
-    // 停止播放影片
-    document.getElementById('popupVideo').src = '';
+    const videoPopup = document.getElementById('videoPopup');
+    const popupVideo = document.getElementById('popupVideo');
+    popupVideo.src = ''; // 停止影片播放
+    videoPopup.style.display = 'none'; // 隱藏彈出視窗
 }
 
 // 以上彈出視窗的設置
-
-
     const gallery = document.querySelector('.video-container');
     const iframes = document.querySelectorAll('.video-container iframe');
     let isScrolling = false;
@@ -260,7 +256,8 @@ function closeVideo() {
         </div>
     </div>
 
-    <!-- 紀錄片Blog End -->
+
+    <!-- Blog End -->
 
     <!-- Team Start -->
     
@@ -325,11 +322,7 @@ function closeVideo() {
     <script src="js/main.js"></script>
 
     <!-- Video Popup Start -->
-<!-- 新增一個全螢幕遮罩來覆蓋整個頁面 -->
-<div id="videoOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); z-index: 999;"></div>
-
-<!-- 原本的彈出視窗，樣式稍作調整 -->
-<div id="videoPopup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; padding: 20px; z-index: 1000; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.5);">
+<div id="videoPopup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: rgba(0, 0, 0, 0.5); /* 背景半透明 */; padding: 20px; z-index: 1000; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.5);">
     <button onclick="closeVideo()" style="position: absolute; top: 10px; right: 10px; background: none; border: none; color: white; font-size: 24px; cursor: pointer;">&times;</button>
     <iframe id="popupVideo" width="560" height="315" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>

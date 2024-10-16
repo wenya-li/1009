@@ -29,41 +29,77 @@
     <link href="css/style.css" rel="stylesheet">
 
 
-    <style type="text/css">
-        body {
-            font-family: Arial, sans-serif;
-        }
-        .modal {
-            display: none; /* 隱藏彈跳視窗 */
-            position: fixed;
-            z-index: 2; /* 確保在其他內容之上 */
-            left: 0;
-            top: 0;
-            width: 100%; /* 全螢幕 */
-            height: 100%; /* 全螢幕 */
-            overflow: auto; /* 可滾動 */
-            background-color: rgba(0, 0, 0, 0.5); /* 背景半透明 */
-        }
-        .modal-content {
-            background-color: #fefefe;
-            margin: 15% auto; /* 置中 */
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%; /* 寬度 */
-        }
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-        .close:hover,
-        .close:focus {
-            color: green;
-            text-decoration: none;
-            cursor: pointer;
-        }
-    </style>
+<style>
+
+    /* 彈跳視窗樣式 */
+    .modal {
+        display: none; /* 隱藏彈跳視窗 */
+        position: fixed;
+        z-index: 2; /* 確保在其他內容之上 */
+        left: 0;
+        top: 0;
+        width: 100%; /* 全螢幕 */
+        height: 100%; /* 全螢幕 */
+        overflow: auto; /* 可滾動 */
+        background-color: rgba(0, 0, 0, 0.5); /* 背景半透明 */
+    }
+
+    .modal-content {
+        background-color: #fefefe;
+        margin: 6% auto; /* 置中 */
+        padding: 10px;
+        border: 1px solid #888;
+        width: 55%; /* 寬度 */
+    }
+
+.close {
+    position: absolute; /* 絕對定位 */
+    top: 0px; /* 距離照片的頂部 */
+    right: 220px; /* 距離照片的右側 */
+    color: #aaa;
+    font-size: 50px;
+    font-weight: bold;
+    background-color: transparent; /* 移除背景顏色 */
+    padding: 0; /* 恢復原始按鈕大小 */
+    cursor: pointer;
+    z-index: 200; /* 確保關閉按鈕在照片之上 */
+}
+
+.close:hover,
+.close:focus {
+    color: #7AB730;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+    /* 照片畫廊樣式 */
+    .gallery-container {
+        text-align: center;
+        position: relative;
+    }
+
+    /* 左右按鈕樣式 */
+    .prev, .next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+        font-size: 20px;
+        z-index: 100;
+    }
+
+    .prev {
+        left: 10px;
+    }
+
+    .next {
+        right: 10px;
+    }
+</style>
 </head>
 
 <body>
@@ -136,8 +172,6 @@
                     <p class="text-uppercase text-transparent mb-lg-4"></p>
                     <div class="d-flex align-items-center justify-content-center justify-content-lg-start pt-5">
                     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
-
                     <h2></h2>
 
                     <!-- 按鈕觸發彈跳視窗 -->
@@ -145,47 +179,71 @@
                     <button id="openModal" class="btn btn-outline-light border-2 py-md-3 px-md-5 me-5">Read more</button>
                     </div>
 
+<!-- 彈跳視窗 -->
+<div id="myModal" class="modal">
+    <div class="gallery-container">
+        <span class="close">&times;</span> <!-- 確保關閉按鈕在這裡 -->
+        <div class="modal-content">
 
-                    <!-- 彈跳視窗 -->
-                    <div id="myModal" class="modal">
-                        <div class="modal-content">
-                            <span class="close">&times;</span>
-                            <h2></h2> <!-- 這排可以放標題 -->
-                            <p></p><!-- 這排可以放內文 -->
-                            <!-- Video Start -->
-                            <video autoplay loop muted>
-                           <source src="video/ying.mp4" type="video/mp4">
-                            </video>
-                            <!-- Video End -->
+            <!-- 照片畫廊 -->
+            <div class="gallery-container" style="position: relative;">
+                <img id="galleryImage" src="image1.jpg" alt="Gallery Image" style="width:100%; max-height: 500px;">
+                <!-- 左右切換按鈕 -->
+                <button class="prev" id="prevBtn">&laquo;</button>
+                <button class="next" id="nextBtn">&raquo;</button>
+            </div>
+        </div>
+    </div>
+</div>
 
+<script>
+    // 獲取彈跳視窗和按鈕
+    var modal = document.getElementById("myModal");
+    var btn = document.getElementById("openModal");
+    var span = document.getElementsByClassName("close")[0];
 
-                        </div>
-                    </div>
+    // 當用戶點擊按鈕，打開彈跳視窗
+    btn.onclick = function() {
+        modal.style.display = "block";
+            updateImage(); // 打開彈跳視窗時更新圖片
+    }
 
-                    <script>
-                        // 獲取彈跳視窗和按鈕
-                        var modal = document.getElementById("myModal");
-                        var btn = document.getElementById("openModal");
-                        var span = document.getElementsByClassName("close")[0];
+    // 當用戶點擊關閉按鈕，關閉彈跳視窗
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
 
-                        // 當用戶點擊按鈕，打開彈跳視窗
-                        btn.onclick = function() {
-                            modal.style.display = "block";
-                        }
+    // 當用戶在彈跳視窗外點擊，關閉彈跳視窗
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
 
-                        // 當用戶點擊關閉按鈕，關閉彈跳視窗
-                        span.onclick = function() {
-                            modal.style.display = "none";
-                        }
+    // 照片畫廊功能
+    var images = ["img/photo1.jpeg", "img/photo2.jpeg", "img/photo3.jpeg", "img/photo4.jpeg", "img/IMG_1895.JPG", "img/IMG_1894.JPG", "img/IMG_1897.JPG", "img/IMG_1899.JPG"];// 替換為你的圖片路徑
+    var currentIndex = 0;
+    var galleryImage = document.getElementById("galleryImage");
+    var prevBtn = document.getElementById("prevBtn");
+    var nextBtn = document.getElementById("nextBtn");
 
-                        // 當用戶在彈跳視窗外點擊，關閉彈跳視窗
-                        window.onclick = function(event) {
-                            if (event.target == modal) {
-                                modal.style.display = "none";
-                            }
-                        }
-                    </script>
+    // 更新圖片顯示
+    function updateImage() {
+        galleryImage.src = images[currentIndex];
+    }
 
+    // 前一張圖片
+    prevBtn.onclick = function() {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        updateImage();
+    }
+
+    // 下一張圖片
+    nextBtn.onclick = function() {
+        currentIndex = (currentIndex + 1) % images.length;
+        updateImage();
+    }
+</script>
 
 
                     </div>
@@ -196,25 +254,6 @@
     <!-- Hero End -->
 
 
-    <!-- Video Modal Start -->
-    <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content rounded-0">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Youtube Video</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <!-- 16:9 aspect ratio -->
-                    <div class="ratio ratio-16x9">
-                        <iframe class="embed-responsive-item" src="" id="video" allowfullscreen allowscriptaccess="always"
-                            allow="autoplay"></iframe>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Video Modal End -->
   <!-- 品牌理念 Start -->
      <img class="w-100 h-50 rounded" src="img/這裡.png" style="object-fit: cover;">
     <!-- 品牌理念End -->
@@ -261,31 +300,6 @@
         </div>
     </div>
     <!-- About End -->
-    
-
-    <!-- Services Start -->
-    
-    <!-- Services End -->
-
-
-    <!-- Products Start -->
-    
-    <!-- Products End -->
-
-
-    <!-- Offer Start -->
-    
-    <!-- Offer End -->
-
-
-    <!-- Pricing Plan Start -->
-    
-    <!-- Pricing Plan End -->
-
-
-    <!-- Team Start -->
-   
-    <!-- Team End -->
 
 
     <!-- 關於台梗11號(照片大小、文字排版待編輯)Testimonial Start -->
@@ -350,14 +364,8 @@
             </div>
         </div>
     </div>
-    <!-- Testimonial End -->
-
-
-    <!-- Blog Start -->
+    <!-- 關於台梗11號 End -->
     
-    <!-- Blog End -->
-    
-
     <!-- Footer Start -->
     <div class="container-fluid bg-light mt-5 py-5">
         <div class="container pt-5">
